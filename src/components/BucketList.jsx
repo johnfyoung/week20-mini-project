@@ -8,6 +8,10 @@ function BucketList() {
   // Function to add a bucket list item
   const addBucketItem = (item) => {
     // TODO: Write logic to add the new bucket item to the bucket state variable
+    if (!item.text) {
+      return;
+    }
+
     setBucket([...bucket, item]);
   };
 
@@ -35,6 +39,7 @@ function BucketList() {
 
   // Function to edit the bucket list item
   const editBucketItem = (itemId, newValue) => {
+    console.log("in editBucketItem", newValue);
     // Make sure that the value isn't empty
     if (!newValue.text) {
       return;

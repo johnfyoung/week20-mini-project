@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function BucketForm(props) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(props.edit?.value || "");
   let [eagerness, setEagerness] = useState("");
 
   // TODO: Use this array in the return statement below
@@ -42,7 +42,7 @@ function BucketForm(props) {
           onChange={handleChange}
         ></input>
         <div className="dropdown">
-          <button className={`dropbtn ${eagerness}`}>
+          <button type="button" className={`dropbtn ${eagerness}`}>
             {eagerness || "Priority"}
           </button>
           <div className="dropdown-content">
@@ -54,7 +54,9 @@ function BucketForm(props) {
             </p>
           </div>
         </div>
-        <button className="bucket-button">Add bucket list item</button>
+        <button type="submit" className="bucket-button">
+          Add bucket list item
+        </button>
       </form>
     </div>
   ) : (
@@ -63,14 +65,13 @@ function BucketForm(props) {
       <form className="bucket-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder={props.edit.value}
           value={input}
           name="text"
           className="bucket-input"
           onChange={handleChange}
         ></input>
         <div className="dropdown">
-          <button className={`dropbtn ${eagerness}`}>
+          <button type="button" className={`dropbtn ${eagerness}`}>
             {eagerness || "Priority"}
           </button>
           <div className="dropdown-content">
@@ -82,7 +83,9 @@ function BucketForm(props) {
             </p>
           </div>
         </div>
-        <button className="bucket-button">Update</button>
+        <button type="submit" className="bucket-button">
+          Update
+        </button>
       </form>
     </div>
   );
